@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os, pwd
 from os.path import join
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
@@ -24,6 +24,8 @@ except ImportError:
 from configurations import Configuration, values
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+USER = pwd.getpwuid(os.getuid())[0]
+PROJECT_NAME = "cookiecutter-project"
 
 
 class Common(Configuration):
@@ -298,6 +300,17 @@ class Local(Common):
     ########## end django-debug-toolbar
 
     ########## Your local stuff: Below this line define 3rd party libary settings
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': '%s-%s' % (PROJECT_NAME, USER),             # Or path to database file if using sqlite3.
+            # The following settings are not used with sqlite3:
+            'USER': '%s' % USER,
+            'PASSWORD': '',
+            'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+            'PORT': '',                      # Set to empty string for default.
+        }
+    }
 
 
 class Production(Common):
