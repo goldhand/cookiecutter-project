@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath="$PWD/cookiecutter-project" config.wsgi:application
