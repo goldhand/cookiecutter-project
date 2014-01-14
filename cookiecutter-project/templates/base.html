@@ -14,10 +14,35 @@
 
     {% block css %}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    {% if debug %}
+    <!--link href="{% static 'bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet"-->
+    <!--link href="{% static 'bootstrap/dist/css/bootstrap-theme.css' %}" rel="stylesheet"-->
+    <link rel="stylesheet/less" href="{% static 'bootstrap/less/bootstrap.less' %}">
+    <script type="text/javascript">
+      less = {
+        env: "development", // or "production"
+        async: false,       // load imports async
+        fileAsync: false,   // load imports async when in a page under
+        // a file protocol
+        poll: 1000,         // when in watch mode, time in ms between polls
+        functions: {},      // user functions, keyed by name
+        dumpLineNumbers: "comments", // or "mediaquery" or "all"
+        relativeUrls: false,// whether to adjust url's to be relative
+        // if false, url's are already relative to the
+        // entry less file
+        rootpath: ""// a path to add on to the start of every url
+        //resource
+      };
+    </script>
+    <script src="{% static 'js/less-1.6.1.min.js' %}"></script>
+  {% else %}
+    <link rel="stylesheet" href="{% static 'css/kes-dashboard.css' %}">
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+  {% endif %}
+   
 
     <!-- Your stuff: Third-party css libraries go here -->
 
@@ -35,7 +60,11 @@
 
     <div class="header navbar">
       <div class="container">
-        <a class="navbar-brand" href="/">cookiecutter-project</a>
+        <a class="navbar-brand" href="/"
+        style="padding: 0 15px;">
+          <img src="{% static 'images/Mariwaste-Logo-Horizontal.png' %}"
+          style="max-height: 50px;width:auto;">
+        </a>
         <ul class="nav navbar-nav">
           <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
