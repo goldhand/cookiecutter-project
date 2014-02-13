@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+
+{% load tumblr_reader %}
+
+{% block content %}
+<div id="tumblr-posts"></div>
+{% endblock content %}
+
+{% block javascript %}
+{{ block.super }}
+{% tumblr_posts blog="g01dhand" container="tumblr-posts" %}
+{% endblock javascript %}

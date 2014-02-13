@@ -1,0 +1,110 @@
+/* Outermost container. */
+.tumblr-reader-posts {
+    color: #202020;
+}
+
+/* All posts. */
+.tumblr-reader-post {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.tumblr-reader-date {
+    float: left;
+    font-size: 11px;
+    padding-bottom: 5px;
+    color: #a0a0a0;
+}
+
+.tumblr-reader-tags {
+    color: #a0a0a0;
+    font-size: 11px;
+    float: right;
+}
+
+/* Regular (text) posts. */
+.tumblr-reader-post.tumblr-reader-post-regular {
+}
+
+.tumblr-reader-title {
+    clear: left;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+/* Link posts. */
+.tumblr-reader-post.tumblr-reader-post-link {
+}
+
+.tumblr-reader-post.tumblr-reader-post-link .tumblr-reader-date {
+    display: none;
+}
+
+.tumblr-reader-post.tumblr-reader-post-link .tumblr-reader-tags {
+    display: none;
+}
+
+.tumblr-reader-link {
+    font-size: 16px;
+}
+
+.tumblr-reader-link:after {
+    display: inline-block;
+    padding-left: 5px;
+    content: "»"
+}
+
+/* Quote posts. */
+.tumblr-reader-post.tumblr-reader-post-quote {
+}
+
+.tumblr-reader-quote {
+    padding-left: 40px;
+    padding-right: 40px;
+    font-style: italic;
+    clear: both;
+}
+
+.tumblr-reader-source {
+    padding-right: 40px;
+    float: right;
+    clear: both;
+}
+
+.tumblr-reader-source:before {
+    content: "–"
+}
+
+/* Conversation posts. */
+.tumblr-reader-post.tumblr-reader-conversation {
+    
+}
+
+.tumblr-reader-phrase {
+}
+
+.tumblr-reader-name {
+    font-weight: bold;
+}
+
+.tumblr-reader-name:after {
+    content: ": "
+}
+
+/* Photo posts. */
+.tumblr-reader-post.tumblr-reader-post-photo {    
+}
+
+.tumblr-reader-photo {
+    clear: both;
+}
+
+.tumblr-reader-photo img {
+    display: block;
+    max-width: 100%;
+}
+
+.tumblr-reader-caption {
+    text-align: center;
+}

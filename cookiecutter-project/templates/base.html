@@ -66,9 +66,9 @@
           style="max-height: 50px;width:auto;">
         </a>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'demo' %}">Demo</a></li>
+          <li class="active"><a href="{% url 'pages:home' %}">Home</a></li>
+          <li><a href="{% url 'pages:demo' %}">Demo</a></li>
+          <li><a href="{% url 'blog:list' %}">Blog</a></li>
 
           {% if request.user.is_authenticated %}
             <li><a href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
@@ -85,7 +85,10 @@
         
       {% if messages %}
           {% for message in messages %}
-              <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+              </div>
           {% endfor %}
       {% endif %}
 
@@ -94,6 +97,8 @@
       {% endblock content %}
 
     </div> <!-- /container -->
+
+    {% block footer %}{% endblock footer %}
     
     {% block modal %}{% endblock modal %}
 
