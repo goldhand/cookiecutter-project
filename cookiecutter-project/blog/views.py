@@ -5,7 +5,6 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.views.generic.base import TemplateView
 
-import pytumblr
 
 class BlogView(TemplateView):
 

@@ -25,7 +25,7 @@ from configurations import Configuration, values
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 USER = pwd.getpwuid(os.getuid())[0]
-PROJECT_NAME = "cookiecutter-project"
+PROJECT_NAME = "momeniassociates"
 
 
 class Common(Configuration):
