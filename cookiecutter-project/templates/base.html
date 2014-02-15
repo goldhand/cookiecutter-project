@@ -34,13 +34,11 @@
         //resource
       };
     </script>
-    <script src="{% static 'js/less-1.6.1.min.js' %}"></script>
+    <script src="{% static 'lib/js/less-1.6.3.min.js' %}"></script>
   {% else %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"-->
+    <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"-->
   {% endif %}
    
 
@@ -117,6 +115,13 @@
       <!-- place project specific Javascript in this file -->
       <script src="{% static 'js/project.js' %}"></script>
     {% endblock javascript %}
+    {% if debug %}
+    <!-- Heads Up Grid http://bohemianalps.com/tools/grid/ -->
+    <script src="{% static 'lib/js/hugrid.js' %}"></script>
+    <script src="{% static 'lib/js/hugrid-config.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'lib/css/hugrid.css' %}">
+
+    {% endif %}
   </body>
 </html>
  
